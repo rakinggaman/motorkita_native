@@ -1,0 +1,25 @@
+.navbar {
+    .navbar-brand {
+        font-size: $heading-4-size;
+        font-weight: 600;
+        color: $brown-color;
+        span {
+            color: $black-color;
+        }
+    }
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                color: $black-color;
+                font-size: $body-2-size;
+                font-weight: 500;
+                &.active {
+                    color: $brown-color;
+                }
+                &:hover {
+                    color: $brown-color;
+                }
+            }
+        }
+    }
+}
