@@ -2,18 +2,17 @@
 session_start();
 include('../koneksi/koneksi.php');
 if (isset($_GET['data'])) {
-    $kode_product = $_GET['data'];
-    $_SESSION['kode_product'] = $kode_product;
+    $kode_gallery = $_GET['data'];
+    $_SESSION['kode_gallery'] = $kode_gallery;
 
     //get data projek
-    $sql_m = "SELECT * FROM `product` WHERE `kode_product` = '$kode_product' ";
+    $sql_m = "SELECT * FROM `gallery` WHERE `kode_gallery` = '$kode_gallery' ";
     $query_m = mysqli_query($koneksi, $sql_m);
     while ($data_m = mysqli_fetch_row($query_m)) {
-        $kode_product        = $data_m[0];
-        $name_product          = $data_m[1];
-        $material_product          = $data_m[2];
-        $price_product      = $data_m[3];
-        $images_product      = $data_m[4];
+        $kode_gallery        = $data_m[0];
+        $name_gallery          = $data_m[1];
+        $description_gallery          = $data_m[2];
+        $images_gallery          = $data_m[3];
     }
 }
 ?>
@@ -40,11 +39,11 @@ if (isset($_GET['data'])) {
         <div class="container-fluid mt-5 p-5 justify-content-center">
             <div class="card">
                 <div class="card-header">
-                    <a class="btn btn-warning mt-3 mb-3" href="product.php">
+                    <a class="btn btn-warning mt-3 mb-3" href="gallery.php">
                         <i class="fas fa-arrow-circle-left "></i> Kembali
                     </a>
                 </div>
-                <form class="form-horizontal" method="post" action="konfirmasi_edit_product.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="konfirmasi_edit_gallery.php" enctype="multipart/form-data">
                     <?php if (!empty($_GET['notif'])) { ?>
                         <?php if ($_GET['notif'] == "editkosong") { ?>
                             <div class="alert alert-danger" role="alert">
@@ -54,30 +53,24 @@ if (isset($_GET['data'])) {
                     <div class="card-body">
                         <h4 class="card-title mt-2">Form Edit Data</h4>
                         <div class="form-group row">
-                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">name product</label>
+                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">name gallery</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="name_product" name="name_product" value="<?= $name_product; ?>">
+                                <input type="text" class="form-control" id="name_gallery" name="name_gallery" value="<?= $name_gallery; ?>">
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">material product</label>
+                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">description gallery</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="material_product" name="material_product" value="<?= $material_product; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">price product</label>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" id="price_product" name="price_product" value="<?= $price_product; ?>">
+                                <input type="text" class="form-control" id="description_gallery" name="description_gallery" value="<?= $description_gallery; ?>">
                             </div>
                         </div>
 
                         <div class="form-group row mt-4">
-                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">images_product</label>
+                            <label for="part_name" class="col-sm-3 text-end control-label col-form-label">images_gallery</label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="images_product" name="images_product" />
+                                <input type="file" class="form-control" id="images_gallery" name="images_gallery" />
                                 <h7> <span style="color: red;">maksimal 2mb</span> </h7>
-                                <h7> <span style="color: red;">update images_product if want </span> </h7>
+                                <h7> <span style="color: red;">update images_gallery if want </span> </h7>
                                 <button type="submit" class="btn  float-end mt-5 mb-3 " style="background-color: #66320D; color:#ffff;"> <i class="fas fa-plus me-2"></i>Edit </button>
 
                             </div>

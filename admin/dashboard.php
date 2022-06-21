@@ -83,7 +83,16 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                                             <div class="icons">
                                                 <i class="bx bx-shopping-bag" style=" color: #FF8A60;"></i>
                                             </div>
-                                            <span class="card-title">4</span>
+                                            <span class="card-title">
+                                                <!--total Product-->
+                                                <?php
+                                                include('../koneksi/koneksi.php');
+                                                $sql = mysqli_query($koneksi, "SELECT COUNT(*) FROM `product` ");
+                                                while ($data = mysqli_fetch_array($sql)) {
+                                                ?>
+                                                    <th style="font-size: 34px;"><?php echo number_format($data['COUNT(*)']); ?></th>
+                                                <?php } ?>
+                                            </span>
                                         </div>
                                         <p class="m-0 text-secondary mt-4">Total Products</p>
                                     </div>

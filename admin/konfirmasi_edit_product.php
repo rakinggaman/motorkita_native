@@ -6,6 +6,7 @@ if (isset($_SESSION['kode_product'])) {
     $name_product    = $_POST['name_product'];
     $material_product        = $_POST['material_product'];
     $price_product    = $_POST['price_product'];
+    $images_product    = $_FILES['images_product']['name'];
 
     // Update edit product
 

@@ -197,69 +197,32 @@ include('./koneksi/koneksi.php');
         <div class="container">
             <h2 class="section-title text-center">Our Gallery</h2>
             <div class="row mt-5">
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 1.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Turkey</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
+                <?php
+                $sql_h = "select * from gallery";
+                $query_h = mysqli_query($koneksi, $sql_h);
+                while ($data_h = mysqli_fetch_row($query_h)) {
+                    $kode_gallery = $data_h[0];
+                    $name_gallery = $data_h[1];
+                    $description_gallery = $data_h[2];
+                    $images_gallery = $data_h[3];
+
+
+                ?>
+                    <div class="col-md-4">
+                        <div class="card border-0 card-service card-destination" style="background-image: url('image/place/<?php echo $images_gallery; ?>');">
+                            <div class="card-body">
+                                <div class="content">
+                                    <h3><?php echo $name_gallery; ?></h3>
+                                    <p><?php echo $description_gallery; ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 2.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Indonesia</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 3.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Thailand</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 4.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Italy</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 5.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Dubai</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 card-service card-destination" style="background-image: url('image/place/gallery\ 6.png');">
-                        <div class="card-body">
-                            <div class="content">
-                                <h3>Venezia</h3>
-                                <p>340+ have beautiful places and 45+ <br> tustable Guides.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
 
