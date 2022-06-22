@@ -46,9 +46,7 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                         <a href="gallery.php" class="sidebar-link">
                             <i class="bx bx-group"> </i> <span>Gallery</span></i>
                         </a>
-                        <a href="event.php" class="sidebar-link">
-                            <i class="bx bx-wallet"> </i> <span>Events</span></i>
-                        </a>
+
                         <hr class="my-3">
                         <!--Sidebar Middle-->
 
@@ -57,7 +55,7 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                         </a>
                         <hr class="my-3">
                         <!--Sidebar Bottom-->
-                        <a href="#" class="sidebar-link">
+                        <a href="../index.php" class="sidebar-link">
                             <i class="bx bx-log-out-circle"> </i> <span>Log Out</span></i>
                         </a>
                     </div>

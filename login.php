@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="asset/css/login.css" />
 
 
-    <title>Monitoring Proyek ONLENKAN</title>
+    <title>MotorKita | Login</title>
     <style>
         html {
             height: 100vh;

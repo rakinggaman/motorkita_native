@@ -25,9 +25,7 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
 
     </head>
 
-    <style>
-        /*# sourceMappingURL=style.css.map */
-    </style>
+
 
     <body>
 
@@ -53,9 +51,7 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                             <a href="gallery.php" class="sidebar-link">
                                 <i class="bx bx-group"> </i> <span>Gallery</span></i>
                             </a>
-                            <a href="event.php" class="sidebar-link">
-                                <i class="bx bx-wallet"> </i> <span>Events</span></i>
-                            </a>
+
                             <hr class="my-3">
                             <!--Sidebar Middle-->
 
@@ -106,24 +102,18 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                                             <div class="icons">
                                                 <i class="bx bx-pie-chart" style=" color: #603CB6;"></i>
                                             </div>
-                                            <span class="card-title">10</span>
+                                            <span class="card-title">
+                                                <!--total Gallery-->
+                                                <?php
+                                                include('../koneksi/koneksi.php');
+                                                $sql = mysqli_query($koneksi, "SELECT COUNT(*) FROM `gallery` ");
+                                                while ($data = mysqli_fetch_array($sql)) {
+                                                ?>
+                                                    <th style="font-size: 34px;"><?php echo number_format($data['COUNT(*)']); ?></th>
+                                                <?php } ?>
+                                            </span>
                                         </div>
                                         <p class="m-0 text-secondary mt-4">Total Gallery</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Customer-->
-                            <div class="col-md-3">
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <div class="icons">
-                                                <i class="bx bx-group" style=" color: #219653;"></i>
-                                            </div>
-                                            <span class="card-title">5</span>
-                                        </div>
-
-                                        <p class="m-0 text-secondary mt-4">Total Events</p>
                                     </div>
                                 </div>
                             </div>
@@ -183,14 +173,14 @@ if ((isset($_GET['aksi'])) && (isset($_GET['data']))) {
                                                         <td data-label="Material_product"> <?php echo $material_product; ?></td>
                                                         <td data-label="Price_product">$ <?php echo $price_product; ?></td>
                                                         <td data-label="Images_product">
-                                                            <img src="../image/"> <?php echo $images_product; ?>
+                                                            <img src="../image/<?php echo $images_product; ?>" style="width:50px;">
                                                         </td>
                                                     <?php
                                                     $no++;
                                                 } ?>
                                             </tbody>
                                         </table>
-                                        <div class="card-footer clearfix">
+                                        <div class=" card-footer clearfix">
                                             <?php
                                             //Menghitung jumlah
                                             $sql_jum = "SELECT `kode_product`,`name_product` FROM `product` order by `kode_product` ";

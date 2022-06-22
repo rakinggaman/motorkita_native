@@ -17,8 +17,74 @@ include('./koneksi/koneksi.php');
     </Link>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Slicing Website</title>
+    <title> MotorKita | Website</title>
 </head>
+<style>
+    .box {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+        text-align: center;
+        position: fixed;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 40px;
+        text-decoration: none;
+        border: 1px solid black;
+        padding: 4px;
+        font-size: 2rem;
+        color: black;
+        box-shadow: 0 5px 7px rgba(0, 0, 0, 0.5);
+        transition: all 0.6s;
+    }
+
+    .button:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup {
+        height: 100vh;
+        width: 100%;
+        padding: 50px;
+        position: fixed !important;
+        justify-content: center;
+        left: 0;
+        top: 0;
+        background-color: white;
+        background-width: 10%;
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.7s;
+        z-index: 999;
+    }
+
+    .popup:target {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+        position: fixed;
+    }
+
+    .close {
+        text-decoration: none;
+        font-size: 4rem;
+        color: darkgray;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+    .close:hover {
+        color: white;
+    }
+
+    .close p {
+        color: white;
+    }
+</style>
 
 <body>
     <!-- Navbar -->
@@ -31,22 +97,22 @@ include('./koneksi/koneksi.php');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link js-scroll-trigger" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link js-scroll-trigger" href="#about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link js-scroll-trigger" href="#product">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galery</a>
+                        <a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
+                        <a class="nav-link js-scroll-trigger" href="#event">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
 
                 </ul>
@@ -55,14 +121,14 @@ include('./koneksi/koneksi.php');
         </div>
     </nav>
     <!-- Header -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1>Explore with amazing place with the best Club.</h1>
-                    <p class="mt-4 mb-5">Charteing tent turkey exchange rate worldwide spa hotspot overnight rural. Flexibility cab USA expedia locals country.
+                    <h1>Explore the amazing place with the best Club.</h1>
+                    <p class="mt-4 mb-5">we are here to make many people in this country happy! let's come and join us
                     </p>
-                    <a href="" class="btn btn-brown py-2 px-5">Explore Now</a>
+                    <a href="#partnership" class="btn btn-brown py-2 px-5">Explore Now</a>
                 </div>
                 <div class="col-md-6 mt-3">
                     <img src="image/header-image.png" alt="" class="hero-img">
@@ -71,7 +137,7 @@ include('./koneksi/koneksi.php');
         </div>
     </section>
     <!--  Partnership -->
-    <div class="container">
+    <div class="container" id="partnership">
         <div class="statistic">
             <div class="statistic-items d-flex align-items-center justify-content-center gap-5">
                 <div class="statistic-item text-center col-md-3">
@@ -93,7 +159,7 @@ include('./koneksi/koneksi.php');
         </div>
     </div>
     <!-- About Us -->
-    <section class="hero">
+    <section class="hero" id="about">
         <div class="container">
             <h2 class="section-title text-center mb-5">About Us</h2>
             <div class="row align-items-center">
@@ -104,16 +170,33 @@ include('./koneksi/koneksi.php');
                     <h1>Motor<span style="color: #66320D;">Kita.</span></h1>
                     <p class="mt-4 mb-5">Charteing tent turkey exchange rate worldwide spa hotspot overnight rural. Flexibility cab USA expedia locals country. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad praesentium eius, tempora nesciunt, ipsam eligendi
                         quo quia commodi saepe laborum, eveniet ut repellat voluptas corporis. Delectus eligendi assumenda deserunt quisquam. </p>
-                    <a href="" class="btn btn-brown py-2 px-5">More..</a>
+                    <a href="#popup" class="btn btn-brown py-2 px-5">More..</a>
                 </div>
 
             </div>
         </div>
     </section>
+    <div class="popup" id="popup">
+        <a href="#box" class="btn-close float-end"></a>
+        <img src="asset/img/Official_Final_Full 1.png" alt="" class="kesan-img">
+        <div class="visi ">
+            <h1>Vision : </h1>
+            <p>Become The Best Motor Club in This Country
+            </p>
+        </div>
+        <div class="pesan mt-5">
+            <h1>Mission :</h1>
+            <p>1. Make us Safe</p>
+            <p>2. Enjoying Riding Motor</p>
+            <p>3. Make The Community Comfortable</p>
+            <p>4. Sharing Many Knowledge</p>
+        </div>
+    </div>
+
 
 
     <!-- Service -->
-    <section class="service">
+    <section class="service" id="service">
         <div class="container">
             <h2 class="section-title text-center">Our Services</h2>
             <div class="row mt-5">
@@ -148,7 +231,7 @@ include('./koneksi/koneksi.php');
         </div>
     </section>
     <!-- Products -->
-    <section class="service">
+    <section class="service" id="product">
         <div class="container">
             <h2 class="section-title text-center">Featured Products</h2>
 
@@ -193,7 +276,7 @@ include('./koneksi/koneksi.php');
         </div>
     </section>
     <!--Gallery-->
-    <section class="service">
+    <section class="service" id="gallery">
         <div class="container">
             <h2 class="section-title text-center">Our Gallery</h2>
             <div class="row mt-5">
@@ -208,7 +291,7 @@ include('./koneksi/koneksi.php');
 
 
                 ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-5">
                         <div class="card border-0 card-service card-destination" style="background-image: url('image/place/<?php echo $images_gallery; ?>');">
                             <div class="card-body">
                                 <div class="content">
@@ -226,78 +309,19 @@ include('./koneksi/koneksi.php');
         </div>
     </section>
 
-    <!-- Event -->
-    <section class="service">
-        <div class="container">
-            <h2 class="section-title text-center">Events</h2>
-            <div class="row mt-5">
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="image/event/gift.png" class="card-img-top">
-                        <div class="card-body ">
-                            <div class="d-flex align-items-center gap-5">
-                                <h4 class="card-title ">Giving Help</h4>
-
-                            </div>
-                            <div class="d-flex align-items-center gap-3 mt-2">
-                                <div class="icons">
-                                    <i class='bx bxs-map' style="font-size: 24px;"></i>
-                                </div>
-                                <span>Jakarta, Indonesia</span>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-md-4 mb-4">
-                    <div class="card " style="width: 26rem; ">
-                        <img src="image/event/meetup.png " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <div class="d-flex align-items-center gap-5 ">
-                                <h4 class="card-title ">Meet Up Community </h4>
-
-                            </div>
-
-                            <div class="d-flex align-items-center gap-3 mt-2">
-                                <div class="icons">
-                                    <i class='bx bxs-map' style="font-size: 24px;"></i>
-                                </div>
-                                <span>Bogor, Indonesia</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card " style="width: 26rem; ">
-                        <img src="image/event/pets.png " class="card-img-top " alt="... ">
-                        <div class="card-body ">
-                            <div class="d-flex align-items-center gap-5 ">
-                                <h4 class="card-title ">Drive With Pet</h4>
-
-                            </div>
-                            <div class="d-flex align-items-center gap-3 mt-2 ">
-                                <i class='bx bxs-map' style="font-size: 24px;"></i>
-                                <span>Jakarta, Indonesia</span>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section class="cta" id="contact">
         <div class="container">
             <div class="row align-items-center p-5" style="background: rgba(242, 100, 64, 0.03);">
                 <div class="col-md-8">
                     <h2 class="section-title">Have You Any Question?</h2>
                     <p class="section-description mt-5">If you have any questions or need any help please inform us, <br> we will help you as soon as possible</p>
+                    <p class="section-description mt-3">(0335)422338 | Ig : MotorKita | Fb : MotorKita GO</p>
+
                 </div>
                 <div class="col">
-                    <a href="#" class="btn btn-brown py-4 px-5 mt-5 float-end ">SEND EMAIL</a>
+                    <a href="mailto:motorkita@gmail.com" class="btn btn-brown py-4 px-5 mt-5 float-end ">SEND EMAIL</a>
                 </div>
             </div>
         </div>
